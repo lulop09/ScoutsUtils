@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+  @font-face {
+    font-family: semaforo;
+    src: url(semaforo.ttf);
+  }
+  .semaforo{
+    font-family: semaforo;
+    font-size: 45px;
+  }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -34,6 +44,7 @@
           <select id="clave" name="clave" class="form-control">
             <option value="murcielago">murcielago</option>
             <option value="abuelito">abuelito</option>
+            <option value="semaforo">semaforo</option>
           </select>
         </div>
         <button onclick="window.init_js();" class="form-control btn default-btn btn-primary glyphicon glyphicon-menu-right"></button>
@@ -46,6 +57,7 @@
   </div>
 </div>
 
+<script  src="bower_components/jquery/dist/jquery.min.js"> </script>
 <script  src="app.js"> </script>
 </body>
 </html>

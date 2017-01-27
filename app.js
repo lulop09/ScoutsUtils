@@ -39,13 +39,22 @@ function encrypt(key, msg){
   }
 
   function init_js(){
-    var output = document.getElementById('output');
+    var output = $('#output');
     var msg = document.getElementById('msg').value;
     var key_control = document.getElementById('clave');
     var key = key_control.options[key_control.selectedIndex].value;
+    var result = ''
 
-    var result = encrypt(key, msg);
-    output.innerHTML = result
+    if(key == 'semaforo'){
+      output.addClass('semaforo')
+      result = msg
+    }
+    else{
+      output.removeClass('semaforo')
+      result = encrypt(key, msg);
+    }
+
+    output.text(result)
   }
 
   window.init_js = init_js;
