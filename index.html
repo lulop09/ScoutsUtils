@@ -32,25 +32,26 @@
       </p>
     </div>
     <div class="row">
-      <div class="col-xs-4 col-md-4 col-lg-4">
+      <div class="form-group col-sm-12 col-md-4 col-lg-4">
         <textarea id="msg"
         name="msg"
         rows="10"
         class="form-control"
         placeholder='Escribe aqui el mensaje que quieres codificar'></textarea>
       </div>
-      <div class="col-xs-2"><from class="form-inline">
+      <div class="col-sm-12"><from class="form-inline">
         <div class="form-group">
           <select id="clave" name="clave" class="form-control">
             <option value="murcielago">murcielago</option>
             <option value="abuelito">abuelito</option>
             <option value="semaforo">semaforo</option>
           </select>
+          <button onclick="window.init_js();" class="form-control btn default-btn btn-primary glyphicon glyphicon-menu-right"> Transformar </button>
         </div>
-        <button onclick="window.init_js();" class="form-control btn default-btn btn-primary glyphicon glyphicon-menu-right"></button>
       </from>
-    </div>      <div class="col-xs-4"><div class="panel panel-default">
-      <div id="output" class="panel-body" style="width: 100%">
+    </div>
+    <div class="form-group col-sm-12"><div class="panel panel-default">
+      <div id="output" class="panel-body" >
         El mensaje escondido aparacera aqui
       </div>
     </div>  </div>
