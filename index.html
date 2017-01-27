@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="UTF-8">
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
   <div class="container">
@@ -24,10 +24,10 @@
     <div class="row">
       <div class="col-xs-4 col-md-4 col-lg-4">
         <textarea id="msg"
-                  name="msg"
-                  rows="10"
-                  class="form-control"
-                  placeholder='Escribe aqui el mensaje que quieres codificar'></textarea>
+        name="msg"
+        rows="10"
+        class="form-control"
+        placeholder='Escribe aqui el mensaje que quieres codificar'></textarea>
       </div>
       <div class="col-xs-2"><from class="form-inline">
         <div class="form-group">
@@ -46,35 +46,6 @@
   </div>
 </div>
 
-  <script>
-  function encrypt(key, msg){
-    var result = '';
-    for(index=0; index < msg.length;
-      index++){
-        myChar = msg[index];
-        indexOnKey = key.indexOf(myChar);
-        if(indexOnKey >= 0){
-          result += indexOnKey;
-        }
-        else{
-          result += myChar;
-        }
-      }
-      return result;
-    }
-
-    function init_js(){
-      var output = document.getElementById('output');
-      var msg = document.getElementById('msg').value;
-      var key_control = document.getElementById('clave');
-      var key = key_control.options[key_control.selectedIndex].value;
-
-      var result = encrypt(key, msg);
-      output.innerHTML = result
-    }
-
-    window.init_js = init_js;
-
-    </script>
-  </body>
-  </html>
+<script  src="app.js"> </script>
+</body>
+</html>
