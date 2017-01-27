@@ -9,45 +9,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-    <h1>Claves</h1>
-    <textarea id="msg" name="" cols="30" rows="10"></textarea>
-    <select id="clave" name="clave">
-        <option value="murcielago">murcielago</option>
-        <option value="abuelito">abuelito</option>
-    </select>
-    <button onclick="window.init_js();">Encriptar</button>
-    <div id="output">
+  <div class="container">
+    <div class="row">
+      <h1>Claves</h1>
+      <p>
+        Los mensajes ocultos o en clave son una actividad divertida para los scouts, con esta herramienta espero que ahorren algo
+        de tiempo cuando preparan sus actividades.
+      </p>
+      <p>
+        Para utilizarla solo escribe el mensaje que quieres codificar en la caja de texto,
+        selecciona la clave que quieres utilizar para ocultar tu mensaje y da click en el boton.
+      </p>
     </div>
-    
-    <script>
-        function encrypt(key, msg){
-            var result = '';
-            for(index=0; index < msg.length;
-                 index++){
-                myChar = msg[index];
-                indexOnKey = key.indexOf(myChar);
-                if(indexOnKey >= 0){
-                    result += indexOnKey;
-                }
-                else{
-                    result += myChar;
-                }
-            }
-            return result;
-        }
+    <div class="row">
+      <div class="col-xs-4 col-md-4 col-lg-4">
+        <textarea id="msg"
+                  name="msg"
+                  rows="10"
+                  class="form-control"
+                  placeholder='Escribe aqui el mensaje que quieres codificar'></textarea>
+      </div>
+      <div class="col-xs-2"><from class="form-inline">
+        <div class="form-group">
+          <select id="clave" name="clave" class="form-control">
+            <option value="murcielago">murcielago</option>
+            <option value="abuelito">abuelito</option>
+          </select>
+        </div>
+        <button onclick="window.init_js();" class="form-control btn default-btn btn-primary glyphicon glyphicon-menu-right"></button>
+      </from>
+    </div>      <div class="col-xs-4"><div class="panel panel-default">
+      <div id="output" class="panel-body" style="width: 100%">
+        El mensaje escondido aparacera aqui
+      </div>
+    </div>  </div>
+  </div>
+</div>
 
-        function init_js(){
-            var output = document.getElementById('output');
-            var msg = document.getElementById('msg').value;
-            var key_control = document.getElementById('clave');
-            var key = key_control.options[key_control.selectedIndex].value;
-
-            var result = encrypt(key, msg);
-            output.innerHTML = result
+  <script>
+  function encrypt(key, msg){
+    var result = '';
+    for(index=0; index < msg.length;
+      index++){
+        myChar = msg[index];
+        indexOnKey = key.indexOf(myChar);
+        if(indexOnKey >= 0){
+          result += indexOnKey;
         }
-        
-        window.init_js = init_js;
-        
+        else{
+          result += myChar;
+        }
+      }
+      return result;
+    }
+
+    function init_js(){
+      var output = document.getElementById('output');
+      var msg = document.getElementById('msg').value;
+      var key_control = document.getElementById('clave');
+      var key = key_control.options[key_control.selectedIndex].value;
+
+      var result = encrypt(key, msg);
+      output.innerHTML = result
+    }
+
+    window.init_js = init_js;
+
     </script>
-</body>
-</html>
+  </body>
+  </html>
