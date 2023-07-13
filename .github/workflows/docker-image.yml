@@ -15,5 +15,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Build and publish docker image
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag scouts-utils:$(date +%s)
+      run: |
+            docker build . --tag ghcr.io/ScoutsUtils/scouts-utils:latest
+            docker push ghcr.io/ScoutsUtils/scouts-utils:latest
+
+
+
+
+      
+
