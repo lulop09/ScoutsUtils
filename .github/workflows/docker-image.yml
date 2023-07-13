@@ -15,20 +15,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build and publish docker image
+    - name: Connecting to github registry
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build the Docker image
+    - name: Build and publish Docker image
       run: |
             docker build . --tag ghcr.io/lulop09/scouts-utils:latest
             docker push ghcr.io/lulop09/scouts-utils:latest
-
-
-
-
-      
+            echo -n "verifying images:"
+            docker images   
+    - name: Start minikube
+      uses: medyagh/setup-minikube@master
+    - name: Try the cluster !
+      run: kubectl get pods -A
+    - name: Deploy to minikube
+      run: kubectl apply -f k8s-node-app.yaml
+    - name: Test service URLs
+      run: |
+          minikube service list
 
