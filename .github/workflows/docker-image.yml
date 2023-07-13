@@ -24,8 +24,8 @@ jobs:
 
     - name: Build the Docker image
       run: |
-            docker build . --tag ghcr.io/scoutsutils/scouts-utils:latest
-            docker push ghcr.io/scoutsutils/scouts-utils:latest
+            docker build . --tag ghcr.io/lulop09/scouts-utils:latest
+            docker push ghcr.io/lulop09/scouts-utils:latest
 
 
 
